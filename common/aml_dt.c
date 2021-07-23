@@ -43,7 +43,7 @@ extern int checkhw(char * name);
 /* return 1 if dtb is encrpted */
 int is_dtb_encrypt(unsigned char *buffer)
 {
-#ifdef CONFIG_SKIP_KERNEL_DTB_VERIFY
+#if defined(CONFIG_SKIP_KERNEL_DTB_VERIFY) || defined(CONFIG_SKIP_KERNEL_DTB_SECBOOT_CHECK)
        return 0;
 #else
 #if 0

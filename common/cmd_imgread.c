@@ -190,7 +190,9 @@ static int do_image_read_dtb(cmd_tbl_t *cmdtp, int flag, int argc, char * const 
         //here must update the cache, otherwise nand will fail (eMMC is OK)
         flush_cache((unsigned long)dtImgAddr,(unsigned long)nFlashLoadLen);
 
+#ifndef CONFIG_SKIP_KERNEL_DTB_SECBOOT_CHECK
         nReturn = aml_sec_boot_check(AML_D_P_IMG_DECRYPT,(unsigned long)loadaddr,GXB_IMG_SIZE,GXB_IMG_DEC_DTB);
+#endif /*CONFIG_SKIP_KERNEL_DTB_SECBOOT_CHECK*/
         if (nReturn) {
             errorP("\n[dtb]aml log : Sig Check is %d\n",nReturn);
             return __LINE__;

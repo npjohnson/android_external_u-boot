@@ -146,6 +146,7 @@ int do_bootm(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	}
 
 #ifndef CONFIG_SKIP_KERNEL_DTB_VERIFY
+#ifndef CONFIG_SKIP_KERNEL_DTB_SECBOOT_CHECK
 	unsigned int nLoadAddr = GXB_IMG_LOAD_ADDR; //default load address
 
 	if (argc > 0)
@@ -161,6 +162,7 @@ int do_bootm(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 		printf("\naml log : Sig Check %d\n",nRet);
 		return nRet;
 	}
+#endif /*CONFIG_SKIP_KERNEL_DTB_SECBOOT_CHECK*/
 #endif /* ! CONFIG_SKIP_KERNEL_DTB_VERIFY */
 
 #ifdef CONFIG_AVB2
