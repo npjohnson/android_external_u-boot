@@ -569,6 +569,7 @@
 //SRC : "board/amlogic/(board)/boot.img"
 //DST : "fip/boot.img.encrypt"
 //#define CONFIG_AML_CRYPTO_IMG       1
+#define CONFIG_SKIP_KERNEL_DTB_SECBOOT_CHECK
 
 #endif //CONFIG_AML_SECURE_UBOOT
 
